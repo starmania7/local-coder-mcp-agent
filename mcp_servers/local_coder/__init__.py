@@ -1,0 +1,1 @@
+"""Local coder MCP server."""
