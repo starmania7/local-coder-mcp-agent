@@ -1,0 +1,14 @@
+# Example Codex MCP configuration snippet.
+# Merge the local-coder section into your Codex config.toml.
+
+[mcp_servers.local-coder]
+enabled = true
+command = "${PROJECT_ROOT}/.venv/bin/python"
+args = ["-m", "mcp_servers.local_coder.server"]
+cwd = "${PROJECT_ROOT}"
+
+[mcp_servers.local-coder.env]
+LOCAL_CODER_BASE_URL = "http://127.0.0.1:8080/v1"
+LOCAL_CODER_MODEL = "default_model"
+LOCAL_CODER_API_KEY = "local"
+ALLOWED_WORKSPACE_ROOT = "${ALLOWED_WORKSPACE_ROOT}"

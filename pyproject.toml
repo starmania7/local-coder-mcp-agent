@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-coder-mcp-agent"
+version = "0.1.0"
+description = "Local Qwen coding worker exposed to Codex through an MCP server."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+]
+mlx = [
+    "mlx-lm>=0.20.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["mcp_servers*", "workers*"]
+
+[tool.pytest.ini_options]
+testpaths = ["workers/coding/tests"]
+
+[tool.ruff]
+line-length = 88
